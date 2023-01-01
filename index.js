@@ -61,6 +61,6 @@ run().catch(console.dir)
 
 
 
-app.listen(port, () => {
+app.listen(process.env.PORT, () => {
     console.log('Gima is Running ', port);
 })
