@@ -29,14 +29,7 @@ async function run(){
     app.get('/products', async (req, res) => {
         console.log(req.query)
         const product = productsCollection.find({});
-        const page = parseInt(req.query.page);
-        const size = parseInt(req.query.size);
-        let result;
-        if(page || size){
-            result = await product.skip(page*size).limit(size).toArray();
-        }else{
-            result = await product.toArray();
-        }
+        let result = await product.toArray();
         res.send(result);
     })
 
